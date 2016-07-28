@@ -20,7 +20,7 @@ public class HelloWorldController {
 		Hello hello = helloRepository.findByLang(lang);
 		String greetingContent = hello != null ? hello.getStr() : "Hello";
 		Greeting greeting = new Greeting();
-		greeting.setContent(greetingContent + " " + name + "!!");
+		greeting.setContent(greetingContent + " " + name + "!!!");
 		return greeting;
 	}
 }
