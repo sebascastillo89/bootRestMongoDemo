@@ -15,11 +15,12 @@ public class HelloWorldController {
 	HelloRepository helloRepository;
 	
 	@RequestMapping("greeting")
-	public Greeting greeting(@RequestParam(value="name", defaultValue="World!") String name, @RequestParam(value="lang", defaultValue="es")String lang){
+	public Greeting greeting(@RequestParam(value="name", defaultValue="World!") String name, @RequestParam(value="lang", defaultValue="en")String lang){
 		
 		Hello hello = helloRepository.findByLang(lang);
+		String greetingContent = hello != null ? hello.getStr() : "Hello";
 		Greeting greeting = new Greeting();
-		greeting.setContent(hello.getStr() + " " + name + "!!");
+		greeting.setContent(greetingContent + " " + name + "!!");
 		return greeting;
 	}
 }
